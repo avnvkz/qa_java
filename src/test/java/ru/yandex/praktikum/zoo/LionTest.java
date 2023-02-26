@@ -1,4 +1,4 @@
-package com.example;
+package ru.yandex.praktikum.zoo;
 
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -23,7 +23,7 @@ public class LionTest {
         Mockito.when(feline.getKittens()).thenReturn(1);
         int expected = 1;
         int actual = lion.getKittens();
-        assertEquals(expected, actual);
+        assertEquals("Проверка количества котят: 0", expected, actual);
     }
 
     @Test
@@ -32,11 +32,17 @@ public class LionTest {
         List<String> expected = Arrays.asList("Животные", "Птицы", "Рыба");
         Mockito.when(feline.getFood("Хищник")).thenReturn(expected);
         List<String> actual = lion.getFood();
-        assertEquals(expected, actual);
+        assertEquals("Проверка типа еды", expected, actual);
     }
 
-    @Test(expected = Exception.class)
-    public void createLionWithUnacceptableValue () throws Exception {
-        Lion lion = new Lion("Детеныш", feline);
+    @Test
+    public void createLionWithUnacceptableValue () {
+        try {
+            Lion lion = new Lion("Детеныш", feline);
+        } catch (Exception e) {
+            String expected = "Используйте допустимые значения пола животного - самец или самка";
+            String actual = e.getMessage();
+            assertEquals("Проверка текста исключения", expected, actual);
+        }
     }
 }

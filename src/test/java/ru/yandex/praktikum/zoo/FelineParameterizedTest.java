@@ -1,4 +1,4 @@
-package com.example;
+package ru.yandex.praktikum.zoo;
 
 import org.junit.Before;
 import org.junit.Test;
@@ -18,7 +18,7 @@ public class FelineParameterizedTest {
         this.kittens = kittens;
     }
 
-    @Parameterized.Parameters
+    @Parameterized.Parameters(name = "Количество котят. Тестовые данные: {0}")
     public static Object[] getKittensData() {
         return new Object[] {-2, 0, 4, 21, 148};
     }
@@ -33,6 +33,6 @@ public class FelineParameterizedTest {
         Feline feline = Mockito.spy(Feline.class);
         int expected = kittens;
         int actual = feline.getKittens(kittens);
-        assertEquals(expected, actual);
+        assertEquals("Проверка количества котят", expected, actual);
     }
 }

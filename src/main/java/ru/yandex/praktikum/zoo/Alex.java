@@ -1,4 +1,4 @@
-package com.example;
+package ru.yandex.praktikum.zoo;
 
 import java.util.List;
 

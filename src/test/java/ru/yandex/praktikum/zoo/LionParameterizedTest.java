@@ -1,4 +1,4 @@
-package com.example;
+package ru.yandex.praktikum.zoo;
 
 import org.junit.Before;
 import org.junit.Test;
@@ -7,8 +7,8 @@ import org.junit.runners.Parameterized;
 import org.mockito.Mockito;
 import org.mockito.MockitoAnnotations;
 
-import static org.junit.Assert.*;
-
+import static org.junit.Assert.assertTrue;
+import static org.junit.Assert.assertFalse;
 
 @RunWith(Parameterized.class)
 public class LionParameterizedTest {
@@ -19,7 +19,7 @@ public class LionParameterizedTest {
         this.sex = sex;
     }
 
-    @Parameterized.Parameters
+    @Parameterized.Parameters(name = "Пол. Тестовые данные: {0}")
     public static Object[] getSexData() {
         return new Object[]{"Самец", "Самка"};
     }
@@ -29,29 +29,15 @@ public class LionParameterizedTest {
     }
 
     @Test
-    public void createLionWithDifferentSex() throws Exception {
-        Feline feline = Mockito.mock(Feline.class);
-        Lion lion = new Lion(sex, feline);
-        switch (sex) {
-            case ("Самец"):
-                assertTrue(lion.hasMane);
-                break;
-            case ("Самка"):
-                assertFalse(lion.hasMane);
-                break;
-        }
-    }
-
-    @Test
     public void doesHaveManeLionWithDifferentSex() throws Exception {
         Feline feline = Mockito.mock(Feline.class);
         Lion lion = new Lion(sex, feline);
         switch (sex) {
             case ("Самец"):
-                assertTrue(lion.doesHaveMane());
+                assertTrue("Проверка наличия гривы у самца",lion.doesHaveMane());
                 break;
             case ("Самка"):
-                assertFalse(lion.doesHaveMane());
+                assertFalse("Проверка наличия гривы у самки", lion.doesHaveMane());
                 break;
         }
     }

@@ -1,4 +1,4 @@
-package com.example;
+package ru.yandex.praktikum.zoo;
 
 import org.junit.Test;
 
@@ -14,7 +14,7 @@ public class FelineTest {
         Feline feline = new Feline();
         List<String> expected = Arrays.asList("Животные", "Птицы", "Рыба");
         List<String> actual = feline.eatMeat();
-        assertEquals(expected, actual);
+        assertEquals("Проверка типа еды", expected, actual);
     }
 
     @Test
@@ -22,7 +22,7 @@ public class FelineTest {
         Feline feline = new Feline();
         String expected = "Кошачьи";
         String actual = feline.getFamily();
-        assertEquals(expected, actual);
+        assertEquals("Проверка семейства", expected, actual);
     }
 
     @Test
@@ -30,6 +30,6 @@ public class FelineTest {
         Feline feline = new Feline();
         int expected = 1;
         int actual = feline.getKittens();
-        assertEquals(expected, actual);
+        assertEquals("Проверка количества котят: 0", expected, actual);
     }
 }

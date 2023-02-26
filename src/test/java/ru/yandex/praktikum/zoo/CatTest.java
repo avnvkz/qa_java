@@ -1,4 +1,4 @@
-package com.example;
+package ru.yandex.praktikum.zoo;
 
 import org.junit.runner.RunWith;
 import org.junit.Test;
@@ -20,7 +20,7 @@ public class CatTest {
         Cat cat = new Cat(feline);
         String expected = "Мяу";
         String actual = cat.getSound();
-        assertEquals(expected, actual);
+        assertEquals("Проверка звука", expected, actual);
     }
 
     @Test
@@ -29,6 +29,6 @@ public class CatTest {
         List<String> expected = List.of("Животные", "Птицы", "Рыба");
         Mockito.when(feline.eatMeat()).thenReturn(expected);
         List<String> actual = cat.getFood();
-        assertEquals(expected, actual);
+        assertEquals("Проверка типа еды", expected, actual);
     }
 }

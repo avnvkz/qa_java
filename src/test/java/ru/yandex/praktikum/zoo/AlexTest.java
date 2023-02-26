@@ -1,4 +1,4 @@
-package com.example;
+package ru.yandex.praktikum.zoo;
 
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -22,7 +22,7 @@ public class AlexTest {
         int expected = 0;
         Mockito.when(feline.getKittens(anyInt())).thenReturn(0);
         int actual = alex.getKittens();
-        assertEquals(expected, actual);
+        assertEquals("Проверка количества котят: 0", expected, actual);
     }
 
     @Test
@@ -30,7 +30,7 @@ public class AlexTest {
         Alex alex = new Alex ("Самец", feline);
         List<String> expected = List.of("зебра Марти", "бегемотиха Глория", "жираф Мелман");
         List<String> actual = alex.getFriends();
-        assertEquals(expected, actual);
+        assertEquals("Проверка списка друзей", expected, actual);
     }
 
     @Test
@@ -38,6 +38,6 @@ public class AlexTest {
         Alex alex = new Alex ("Самец", feline);
         String expected = "Нью-Йоркский зоопарк";
         String actual = alex.getPlaceOfLiving();
-        assertEquals(expected, actual);
+        assertEquals("Проверка адреса", expected, actual);
     }
 }
