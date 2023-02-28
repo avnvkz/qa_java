@@ -9,7 +9,7 @@ Use terminal command to run tests:
    ```
    mvn clean test
    ```
-Get get jacoco report:
+Get jacoco report:
    ```
    mvn verify
    ```
