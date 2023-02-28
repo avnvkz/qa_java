@@ -1,0 +1,9 @@
+package ru.yandex.praktikum.zoo;
+
+import java.util.List;
+
+public interface Predator {
+
+    List<String> eatMeat() throws Exception;
+
+}
